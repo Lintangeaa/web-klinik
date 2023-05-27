@@ -11,6 +11,7 @@ const ContentData = {
   BannerImage: [
     "/images/banner1.jpg",
     "/images/banner2.jpg",
+    "/images/banner3.jpg",
   ],
 };
 

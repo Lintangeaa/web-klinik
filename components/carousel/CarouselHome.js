@@ -34,7 +34,7 @@ const Banner = () => {
             className="w-full"
             src={banner}
             width={250}
-            height={250}
+            height={200}
             alt="banner"
           />
         </SwiperSlide>
