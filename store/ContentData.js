@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const ContentData = {
   navbar: {
@@ -8,10 +8,13 @@ const ContentData = {
       { label: "Option 3", link: "#" },
     ],
   },
-  BannerImage: [
-    "/images/banner1.jpg",
-    "/images/banner2.jpg",
-  ],
-};
+  BannerImage: ["/images/content1.jpeg", "/images/content2.webp"],
+  banner: {
+    title1: "Welcome to our website",
+    title2: "We Take Care Our",
+    title3: "Patient Health",
+    title4: "I realized",
+  },
+}
 
-export default ContentData;
+export default ContentData

@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin")
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,5 +15,15 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-};
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const utilities = {
+        ".bg-content1": {
+          "background-image":
+            "url(https://skyethemes.com/html/2022/medicoz/images/icons/pattern-1.png)",
+        },
+      }
+      addUtilities(utilities)
+    }),
+  ],
+}
