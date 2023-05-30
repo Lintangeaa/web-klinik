@@ -47,7 +47,7 @@ const Banner = () => {
           <Image
             className="w-full -z-20"
             src={banner}
-            width={250}
+            width={1400}
             height={200}
             alt="banner"
           />

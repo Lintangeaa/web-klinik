@@ -28,12 +28,12 @@ const Header = () => {
             width={200}
             height={100}
             alt=""
-            className="absolute top-0"
+            className="absolute -bottom-2"
           />
         </div>
         <div className="flex justify-center w-1/3">
           <ul className="flex justify-between space-x-10 font-medium">
-            <li className="cursor-pointer hover:text-primary">HOME</li>
+            <li className="cursor-pointer hover:text-secondary">HOME</li>
             <li className="cursor-pointer hover:text-primary">
               <DropdownNavbar
                 menu="PAGES"

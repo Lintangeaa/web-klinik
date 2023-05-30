@@ -15,6 +15,19 @@ const ContentData = {
     title3: "Patient Health",
     title4: "I realized",
   },
+  home: {
+    box: {
+      title1: "Quality & Safety",
+      content1:
+        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
+      title2: "Leading Technology",
+      content2:
+        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
+      title3: "Expert by Experience",
+      content3:
+        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
+    },
+  },
 }
 
 export default ContentData
