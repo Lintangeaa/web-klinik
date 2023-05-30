@@ -8,7 +8,7 @@ const ContentData = {
       { label: "Option 3", link: "#" },
     ],
   },
-  BannerImage: ["/images/content1.jpeg", "/images/content2.webp"],
+  BannerImage: ["/images/content1.jpeg", "/images/content2.jpeg"],
   banner: {
     title1: "Welcome to our website",
     title2: "We Take Care Our",
