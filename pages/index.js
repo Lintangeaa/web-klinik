@@ -3,6 +3,7 @@ import CarouselHome from "@/components/carousel/CarouselHome"
 import Footer from "@/components/Footer"
 import { BiDonateHeart } from "react-icons/bi"
 import { FaLaptopMedical, FaStethoscope } from "react-icons/fa"
+import { TbActivity } from "react-icons/tb"
 import ContentData from "@/store/ContentData"
 
 export default function Home() {
@@ -38,12 +39,21 @@ export default function Home() {
         <div className="flex justify-center w-1/2 pt-64 bg-content2">
           <p className="text-gray-700">Our Medical</p>
         </div>
-        <div className="w-1/2 pt-64">
+        <div className="w-1/2 px-2 pt-64">
           <p className="text-lg font-ligt">OUR MEDICAL</p>
-          <p className="text-3xl font-bold">
+          <p className="max-w-xl py-5 text-3xl font-bold text-black">
             We&apos;re setting Standards in Research what&apos;s more, Clinical
             Care.
           </p>
+          <TbActivity className="text-8xl text-secondary" />
+          <div className="max-w-xl">
+            <p className="py-4 text-sm">
+              {ContentData.home.ourmedical.content2}
+            </p>
+            <p className="py-4 text-sm">
+              {ContentData.home.ourmedical.content3}
+            </p>
+          </div>
         </div>
       </div>
     </main>

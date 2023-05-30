@@ -27,6 +27,14 @@ const ContentData = {
       content3:
         "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
     },
+    ourmedical: {
+      title: "Our Medical",
+      content1: "a",
+      content2:
+        "We provide the most full medical services, so every person could have the pportunity o receive qualitative medical help.",
+      content3:
+        "Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and bore advanced restorative dentistry. We are among the most qualified implant providers in the AUS with over 30 years of uality training and experience.",
+    },
   },
 }
 
