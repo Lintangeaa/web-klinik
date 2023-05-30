@@ -22,6 +22,10 @@ module.exports = {
           "background-image":
             "url(https://skyethemes.com/html/2022/medicoz/images/icons/pattern-1.png)",
         },
+        ".bg-content2": {
+          "background-image":
+            "url(https://skyethemes.com/html/2022/medicoz/images/icons/pattern-2.png)",
+        },
       }
       addUtilities(utilities)
     }),

@@ -19,19 +19,16 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div className="w-full h-screen bg-white container-fluid -z-10">
-        <div className="flex px-10 pt-64">
-          <div className="flex justify-center w-1/2">
-            <p className="text-gray-700">Our Medical</p>
-          </div>
-          <div className="w-1/2">
-            <p className="text-lg font-ligt">OUR MEDICAL</p>
-            <p className="text-3xl font-bold">
-              We&apos;re setting Standards in Research what&apos;s more,
-              Clinical Care.
-            </p>
-          </div>
+      <div className="flex w-full h-screen bg-white container-fluid -z-10">
+        <div className="flex justify-center w-1/2 pt-64 bg-content2">
+          <p className="text-gray-700">Our Medical</p>
+        </div>
+        <div className="w-1/2 pt-64">
+          <p className="text-lg font-ligt">OUR MEDICAL</p>
+          <p className="text-3xl font-bold">
+            We&apos;re setting Standards in Research what&apos;s more, Clinical
+            Care.
+          </p>
         </div>
       </div>
     </main>

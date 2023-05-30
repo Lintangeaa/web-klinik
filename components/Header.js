@@ -1,9 +1,11 @@
-import React from "react";
-import { SlLocationPin } from "react-icons/sl";
-import { MdOutlineAvTimer } from "react-icons/md";
-import Button from "./Button";
-import DropdownNavbar from "./dropdown/DropdownNavbar";
-import ContentData from "../store/ContentData";
+import React from "react"
+import { SlLocationPin } from "react-icons/sl"
+import { MdOutlineAvTimer } from "react-icons/md"
+import Button from "./button/Button"
+import DropdownNavbar from "./dropdown/DropdownNavbar"
+import ContentData from "../store/ContentData"
+import Logo from "./Logo"
+import Image from "next/image"
 
 const Header = () => {
   return (
@@ -20,7 +22,15 @@ const Header = () => {
       </div>
 
       <div className="relative flex w-full max-w-6xl mx-auto bg-gray-200 border border-gray-300 rounded-full py-7">
-        <div className="flex justify-center w-1/3"></div>
+        <div className="flex justify-center w-1/3 bg-">
+          <Image
+            src="/images/Klinikwebicon.png"
+            width={200}
+            height={100}
+            alt=""
+            className="absolute top-0"
+          />
+        </div>
         <div className="flex justify-center w-1/3">
           <ul className="flex justify-between space-x-10 font-medium">
             <li className="cursor-pointer hover:text-primary">HOME</li>
@@ -39,13 +49,12 @@ const Header = () => {
         <Button
           variant="primary"
           link="/home"
-          className="absolute py-4 text-center cursor-pointer right-20 w-min top-16"
-        >
-          Appointment
-        </Button>
+          label="Appointment"
+          className="absolute py-4 text-center cursor-pointer right-20 w-min top-16 rounded-ful"
+        />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
