@@ -4,7 +4,9 @@ import Footer from "@/components/Footer"
 import { BiDonateHeart } from "react-icons/bi"
 import { FaLaptopMedical, FaStethoscope } from "react-icons/fa"
 import { TbActivity } from "react-icons/tb"
+import { BsHeartPulse } from "react-icons/bs"
 import ContentData from "@/store/ContentData"
+import Button from "@/components/button/Button"
 
 export default function Home() {
   return (
@@ -53,6 +55,42 @@ export default function Home() {
             <p className="py-4 text-sm">
               {ContentData.home.ourmedical.content3}
             </p>
+            <Button variant="primary" link="/" label="About Us" />
+          </div>
+        </div>
+      </div>
+      <div className="w-full h-screen bg-white bg-no-repeat bg-contain container-fluid bg-content3 ">
+        <div className="flex flex-col items-center py-28">
+          <p className="text-xl text-gray-700">
+            {ContentData.home.ourservice.title}
+          </p>
+          <p className="text-3xl font-bold">
+            {ContentData.home.ourservice.title2}
+          </p>
+          <TbActivity className="text-8xl text-secondary" />
+          <div className="z-50 grid w-full grid-cols-3 mt-10 hover:drop-shadow-xl">
+            <div className="flex flex-col items-center justify-center w-full max-w-xs mx-auto mb-6 overflow-hidden transition duration-300 ease-in-out delay-150 cursor-pointer hover:bg-white bg-none h-72 rounded-t-2xl hover:-translate-y-8">
+              <div className="flex items-center justify-center w-full max-w-[115px] hover:rounded-none drop-shadow-xl">
+                <BsHeartPulse className="text-6xl" />
+              </div>
+              <div className="px-4 py-4">
+                <div className="mb-2 text-lg font-bold text-black lg:text-xl">
+                  Cek
+                </div>
+                <p className="text-sm text-gray-400 lg:text-base">Halo</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center w-full max-w-xs mx-auto overflow-hidden transition duration-300 ease-in-out delay-150 cursor-pointer hover:bg-white bg-none h-72 rounded-t-2xl hover:-translate-y-8">
+              <div className="flex items-center justify-center w-full max-w-[115px] ">
+                <BsHeartPulse className="text-6xl" />
+              </div>
+              <div className="px-4 py-4">
+                <div className="mb-2 text-lg font-bold text-black lg:text-xl">
+                  Cek
+                </div>
+                <p className="text-sm text-gray-400 lg:text-base">Halo</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

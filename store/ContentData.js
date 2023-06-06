@@ -35,6 +35,30 @@ const ContentData = {
       content3:
         "Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and bore advanced restorative dentistry. We are among the most qualified implant providers in the AUS with over 30 years of uality training and experience.",
     },
+    ourservice: {
+      title: "Our Service",
+      title2: "We Care Our Patients.",
+      box: {
+        title1: "Health Check",
+        content1:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+        title2: "Operation Theater",
+        content2:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+        title3: "Pharmacy Support",
+        content3:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+        title4: "Ambulance Car",
+        content4:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+        title6: "Lat Test",
+        content6:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+        title6: "Intentsive Care",
+        content6:
+          "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
+      },
+    },
   },
 }
 
