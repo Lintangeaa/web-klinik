@@ -4,6 +4,7 @@ import InputWithTitle from "@/components/input/InputWithTitle"
 import Dropdown from "@/components/input/Dropdown"
 import ContentData from "@/store/ContentData"
 import DateInput from "@/components/input/InputDate"
+import { FaChevronCircleDown } from "react-icons/fa"
 
 const Appointment = () => {
   return (
@@ -63,6 +64,57 @@ const Appointment = () => {
             </form>
           </div>
           <p className="w-1/2 h-screen bg-no-repeat bg-appointment"></p>
+        </div>
+      </section>
+      <section className="h-auto px-20 bg-slate-100">
+        <div className="flex flex-col items-center w-full py-5 mt-10 h-1/6 ">
+          <h1 className="text-3xl font-bold text-secondary">
+            Setelah Mendaftar
+          </h1>
+          <p className="px-48 text-base text-center">
+            Hi fill in the details and submit the form. We will contact you via
+            phone or email and fix a time schedule. These are the thing you need
+            to carry with you when you come in for the appointment wit the
+            doctor.
+          </p>
+          <div className="flex w-full px-40 mt-10">
+            <ul className="w-1/2 space-y-5">
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+            </ul>
+            <ul className="w-1/2 space-y-5">
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+              <li className="flex space-x-5">
+                <FaChevronCircleDown className="text-2xl" color="#13BFB3" />
+                <p>Cekkk</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>

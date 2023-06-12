@@ -5,7 +5,7 @@ const ContentData = {
     dropdownOptions: [
       { label: "About Us", link: "/about-us" },
       { label: "Appointment", link: "/appointment" },
-      { label: "Option 3", link: "#" },
+      { label: "FAQ", link: "/faq" },
     ],
   },
   BannerImage: ["/images/content1.jpeg", "/images/content2.jpeg"],
