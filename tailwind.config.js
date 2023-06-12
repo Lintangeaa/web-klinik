@@ -10,8 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#007bff",
+        primary: "#118480",
         secondary: "#13BFB3",
+        third: "#c7fffd",
         lp: "#CFD0D2",
       },
     },
@@ -34,6 +35,9 @@ module.exports = {
         },
         ".bg-about": {
           "background-image": "url(/images/about-us-banner.png)",
+        },
+        ".bg-appointment": {
+          "background-image": "url(/images/appointment-doctor.jpg)",
         },
       }
       addUtilities(utilities)

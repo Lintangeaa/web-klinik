@@ -30,7 +30,7 @@ const blog = () => {
             <CarouselAbout />
           </div>
         </div>
-        <div className="text-center bg-slate-100">
+        <div className="py-10 text-center bg-slate-100">
           <h1 className="text-3xl text-secondary">
             MEET THE <span className="font-bold">PERFECT SPECIALIST</span> TEAM
           </h1>

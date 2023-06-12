@@ -4,7 +4,7 @@ const ContentData = {
   navbar: {
     dropdownOptions: [
       { label: "About Us", link: "/about-us" },
-      { label: "Option 2", link: "#" },
+      { label: "Appointment", link: "/appointment" },
       { label: "Option 3", link: "#" },
     ],
   },
@@ -67,6 +67,12 @@ const ContentData = {
         content3: "Ketika berobat dapat langsung menebus obat",
       },
     },
+  },
+  appointment: {
+    dropdownJenisKelamin: [
+      { label: "Laki-Laki", value: 1 },
+      { label: "Perempuan", value: 2 },
+    ],
   },
 }
 

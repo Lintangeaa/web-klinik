@@ -12,13 +12,13 @@ const InputWithTitle = ({
   return (
     <div className={`${width}`}>
       <label
-        className="block mb-2 text-sm font-semibold lg:text-lg text-grey-200"
+        className="block mb-2 text-sm font-semibold lg:text-lg text-secondary"
         htmlFor={id}
       >
         {title}
       </label>
       <input
-        className="bg-white border-blue-300 appearance-none text-sm w-full border rounded-xl py-3.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="bg-white border-secondary appearance-none text-sm w-full border rounded-md py-3.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-secondary"
         id={id}
         type={type}
         placeholder={placeholder}
