@@ -11,11 +11,13 @@ module.exports = {
     extend: {
       colors: {
         primary: "#007bff",
-        secondary: "#0079b2",
+        secondary: "#13BFB3",
+        lp: "#CFD0D2",
       },
     },
   },
   plugins: [
+    require("@tailwindcss/forms"),
     plugin(function ({ addUtilities }) {
       const utilities = {
         ".bg-content1": {
@@ -29,6 +31,9 @@ module.exports = {
         ".bg-content3": {
           "background-image":
             "url(https://skyethemes.com/html/2022/medicoz/images/icons/pattern-3.png)",
+        },
+        ".bg-about": {
+          "background-image": "url(/images/about-us-banner.png)",
         },
       }
       addUtilities(utilities)

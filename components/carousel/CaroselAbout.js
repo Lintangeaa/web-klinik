@@ -28,28 +28,14 @@ const Banner = () => {
       slideClass="swiper-slide"
       slideActiveClass="swiper-slide-active"
       speed={800}
-      className="h-screen"
+      className="h-full"
     >
       {ContentData.BannerImage.map((banner) => (
         <SwiperSlide key={banner}>
-          <div className="absolute w-full h-screen bg-gradient-to-r from-lp"></div>
-          <div className="absolute top-1/4 left-36 bg-transparant">
-            <p className="text-lg font-semibold text-secondary">
-              {ContentData.banner.title1}
-            </p>
-            <p className="py-3 text-5xl font-bold">
-              {ContentData.banner.title2} <br /> {ContentData.banner.title3}
-            </p>
-            <p className="mt-2 font-semibold"> {ContentData.banner.title4}</p>
-            <div className="flex items-center mt-10 space-x-4">
-              <Button variant="primary" label="About Us" link="/" />
-              <Button variant="secondary" label="Our Service" link="/" />
-            </div>
-          </div>
           <Image
-            className="w-full -z-20"
+            className="w-full -z-20 rounded-2xl"
             src={banner}
-            width={1400}
+            width={1000}
             height={200}
             alt="banner"
           />

@@ -6,10 +6,13 @@ import DropdownNavbar from "./dropdown/DropdownNavbar"
 import ContentData from "../store/ContentData"
 import Logo from "./Logo"
 import Image from "next/image"
+import PopUpForm from "./form/PopUpForm"
+import { useRouter } from "next/router"
+import NavItem from "./NavItem"
 
 const Header = () => {
   return (
-    <div className="sticky z-50 w-screen text-gray-700 border-t-8 border-primary bg-slate-100 pb-7">
+    <div className="sticky top-0 z-50 w-screen text-gray-700 border-t-8 border-secondary bg-slate-100 pb-7">
       <div className="flex justify-start max-w-6xl py-4 mx-auto space-x-3">
         <div className="flex space-x-2 cursor-pointer">
           <SlLocationPin className="text-secondary"></SlLocationPin>
@@ -31,28 +34,22 @@ const Header = () => {
             className="absolute -bottom-2"
           />
         </div>
-        <div className="flex justify-center w-1/3">
+        <nav className="flex justify-center w-1/3">
           <ul className="flex justify-between space-x-10 font-medium">
-            <li className="cursor-pointer hover:text-secondary">HOME</li>
-            <li className="cursor-pointer hover:text-primary">
+            <NavItem link="/" title="HOME" />
+
+            <li className="cursor-pointer hover:text-secondary">
               <DropdownNavbar
                 menu="PAGES"
                 options={ContentData.navbar.dropdownOptions}
               />
             </li>
-            <li className="cursor-pointer hover:text-primary">DOCTORS</li>
-            <li className="cursor-pointer hover:text-primary">CONTACT</li>
+            <NavItem link="/" title="DOCTOR" />
+            <NavItem link="/" title="CONTACT" />
           </ul>
-        </div>
+        </nav>
       </div>
-      <div className="flex justify-end w-1/3 h-full bg-black ">
-        <Button
-          variant="primary"
-          link="/home"
-          label="Appointment"
-          className="absolute py-4 text-center cursor-pointer right-20 w-min top-16 rounded-ful"
-        />
-      </div>
+      <PopUpForm />
     </div>
   )
 }
