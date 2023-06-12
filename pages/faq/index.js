@@ -22,9 +22,32 @@ const FAQ = () => {
               title="Cek"
               content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
             />
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
           </div>
-          <div className="w-1/2">
-            <div className="h-20 rounded-md shadow-xl bg-third card"></div>
+          <div className="w-1/2 space-y-5">
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
+            <Card
+              title="Cek"
+              content="Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes"
+            />
           </div>
         </div>
       </section>

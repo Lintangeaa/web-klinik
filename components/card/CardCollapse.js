@@ -37,7 +37,7 @@ const Card = ({ title, content }) => {
           />
         </svg> */}
       </button>
-      {isCollapsed && <p>{content}</p>}
+      {isCollapsed && <p className="w-full ">{content}</p>}
     </div>
   )
 }
