@@ -10,7 +10,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import InputWithTitle from "@/components/input/InputWithTitle"
 
-const Contact = () => {
+const Doctor = () => {
   return (
     <main>
       <Header />
@@ -103,4 +103,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Doctor

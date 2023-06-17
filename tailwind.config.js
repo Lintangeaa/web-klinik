@@ -39,6 +39,9 @@ module.exports = {
         ".bg-appointment": {
           "background-image": "url(/images/appointment-doctor.jpg)",
         },
+        ".bg-contact": {
+          "background-image": "url(/images/contactImage.png)",
+        },
       }
       addUtilities(utilities)
     }),

@@ -1,9 +1,12 @@
 import React from "react"
 import CarouselAbout from "@/components/carousel/CaroselAbout"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const blog = () => {
   return (
     <main>
+      <Header />
       <section className="relative bg-fixed h-72 bg-about">
         <h1 className="absolute text-3xl font-bold right-10 top-1/3 text-secondary">
           About US
@@ -41,6 +44,7 @@ const blog = () => {
           </p>
         </div>
       </section>
+      <Footer />
     </main>
   )
 }

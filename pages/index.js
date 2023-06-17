@@ -9,12 +9,13 @@ import { GiMedicalDrip } from "react-icons/gi"
 import { MdOutlineLocalPharmacy } from "react-icons/md"
 import ContentData from "@/store/ContentData"
 import Button from "@/components/button/Button"
-import InputWithTitle from "@/components/input/InputWithTitle"
+import Header from "@/components/Header"
 import PopUpForm from "@/components/form/PopUpForm"
 
 export default function Home() {
   return (
     <main className="w-full">
+      <Header />
       <div className="relative mx-auto border-t-2 border-gray-200">
         <CarouselHome />
         <div className="z-40 flex flex-col w-full px-20 lg:absolute lg:flex-row container-fluid -bottom-44">
@@ -104,6 +105,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   )
 }

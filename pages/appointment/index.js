@@ -5,10 +5,13 @@ import Dropdown from "@/components/input/Dropdown"
 import ContentData from "@/store/ContentData"
 import DateInput from "@/components/input/InputDate"
 import { FaChevronCircleDown } from "react-icons/fa"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const Appointment = () => {
   return (
     <main>
+      <Header />
       <section className="flex flex-col items-center justify-center bg-fixed h-72 bg-about">
         <h1 className="text-3xl font-bold text-secondary">
           MAKE AN APPOINTMENT
@@ -117,6 +120,7 @@ const Appointment = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   )
 }

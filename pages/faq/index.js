@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 import CarouselAbout from "@/components/carousel/CaroselAbout"
 import Card from "@/components/card/CardCollapse"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const FAQ = () => {
   return (
     <main>
+      <Header />
       <section className="flex flex-col items-center justify-center bg-fixed h-72 bg-about">
         <h1 className="text-3xl font-bold text-secondary">FAQ</h1>
         <p className="text-base">
@@ -51,6 +54,7 @@ const FAQ = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   )
 }
