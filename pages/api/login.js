@@ -1,10 +1,5 @@
-import User from "@/models/userModel"
-import connectMongo from "@/utils/ConnectDB"
-
-/**
- * @param {import("next").NextApiRequest} req
- * @param {import("next").NextApiResponse} res
- */
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
 
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
@@ -14,9 +9,10 @@ export default async function Login(req, res) {
     const { email, password } = req.body
 
     try {
-      await connectMongo()
-      const data = await User.findOne({
-        email,
+      const data = await prisma.User.findFirst({
+        where: {
+          email: email,
+        },
       })
 
       if (!data) {

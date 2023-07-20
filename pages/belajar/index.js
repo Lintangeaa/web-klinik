@@ -10,13 +10,14 @@ const Belajar = () => {
 
   const handleMin = () => {
     setCount(count - 1)
-    if (count <= -1) {
-      setCount(count == "done!")
-    }
+  }
+
+  const handleReset = () => {
+    setCount(0)
   }
 
   return (
-    <section className="flex justify-center mt-10">
+    <section className="flex flex-col items-center justify-center mt-10">
       <div className="flex space-x-3">
         <button
           onClick={handleMin}
@@ -32,6 +33,14 @@ const Belajar = () => {
           className="px-6 text-3xl font-bold border rounded-md"
         >
           +
+        </button>
+      </div>
+      <div className="flex justify-center mt-2">
+        <button
+          onClick={handleReset}
+          className="px-6 text-3xl font-bold border rounded-md"
+        >
+          RESET
         </button>
       </div>
     </section>

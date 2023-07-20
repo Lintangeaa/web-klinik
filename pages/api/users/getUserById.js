@@ -1,9 +1,14 @@
 import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 
-export default async function getUsers(req, res) {
+export default async function getUserById(req, res) {
   try {
-    const user = await prisma.user.findMany()
+    const { id } = req.query
+    const user = await prisma.User.findUnique({
+      where: {
+        id: parseInt(id, 10),
+      },
+    })
     console.log("succes")
     res.status(200).json({ success: true, data: user })
   } catch (error) {

@@ -6,24 +6,20 @@ const bcrypt = require("bcrypt")
 
 export default async function addUser(req, res) {
   if (req.method === "POST") {
-    const { username, password, email, role } = req.body
+    const { nama, spesialis } = req.body
 
     try {
-      const hashedPassword = await bcrypt.hash(password, 10)
-
-      const user = await prisma.user.create({
+      const dokter = await prisma.dokter.create({
         data: {
-          username,
-          email,
-          password: hashedPassword,
-          role,
+          nama,
+          spesialis,
         },
       })
 
       res.status(201).json({
         status: "success",
         message: "Successfuly insert data",
-        user,
+        dokter,
       })
     } catch (error) {
       res.status(400).json({

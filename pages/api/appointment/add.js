@@ -1,38 +1,34 @@
-import connectMongo from "@/utils/ConnectDB"
-import Appointment from "@/models/appointmentModel"
-
-/**
- * @param {import("next").NextApiRequest} req
- * @param {import("next").NextApiResponse} res
- */
-
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
 
 export default async function addAppointment(req, res) {
-  const { fullName, gender, birthday, phone, address, medicalHistory } =
-    req.body
+  if (req.method === "POST") {
+    const { fullName, gender, birthday, phone, address, medicalHistory } =
+      req.body
 
-  try {
-    await connectMongo()
+    try {
+      const data = await prisma.appointment.create({
+        data: {
+          fullName,
+          gender,
+          birthday,
+          phone,
+          address,
+          medicalHistory,
+        },
+      })
 
-    const data = await Appointment.create({
-      fullName,
-      gender,
-      birthday,
-      phone,
-      address,
-      medicalHistory,
-    })
-
-    res.status(201).json({
-      status: "success",
-      message: "Success to reservation",
-      data,
-    })
-  } catch (error) {
-    res.status(400).json({
-      message: error.message,
-    })
+      res.status(201).json({
+        status: "success",
+        message: "Success to reservation",
+        data,
+      })
+    } catch (error) {
+      res.status(400).json({
+        message: error.message,
+      })
+    }
+  } else {
+    res.status(405).json({ message: "Method Not Allowed" })
   }
 }

@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 
-export default async function getUsers(req, res) {
+export default async function getDokter(req, res) {
   try {
-    const user = await prisma.user.findMany()
+    const user = await prisma.dokter.findMany()
     console.log("succes")
     res.status(200).json({ success: true, data: user })
   } catch (error) {

@@ -46,6 +46,7 @@ const Appointment = () => {
               <DateInput label="Tanggal Lahir" />
               <InputWithTitle
                 title="Nomor Whats App"
+                type="number"
                 placeholder="Silahkan masukan nomor wa anda ..."
               />
               <InputWithTitle
