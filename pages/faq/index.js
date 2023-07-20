@@ -9,7 +9,7 @@ const FAQ = () => {
     <main>
       <Header />
       <section className="flex flex-col items-center justify-center bg-fixed h-72 bg-about">
-        <h1 className="text-3xl font-bold text-secondary">FAQ</h1>
+        <h1 className="text-3xl font-bold text-secondary leading-loose">FAQ</h1>
         <p className="text-base">
           Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes
         </p>

@@ -13,7 +13,7 @@ const Appointment = () => {
     <main>
       <Header />
       <section className="flex flex-col items-center justify-center bg-fixed h-72 bg-about">
-        <h1 className="text-3xl font-bold text-secondary">
+        <h1 className="text-3xl font-bold text-secondary leading-loose">
           MAKE AN APPOINTMENT
         </h1>
         <p className="text-base">
@@ -22,7 +22,7 @@ const Appointment = () => {
       </section>
       <section className="h-auto px-20">
         <div className="flex flex-col items-center w-full py-5 mt-10 h-1/6 ">
-          <h1 className="text-3xl text-secondary">MAKE AN APPOINTMENT</h1>
+          <h1 className="text-3xl text-secondary leading-loose">MAKE AN APPOINTMENT</h1>
           <p className="text-base">
             Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes
           </p>
@@ -57,10 +57,10 @@ const Appointment = () => {
                 title="Riwayat Penyakit"
                 placeholder="Silahkan masukan riwayat penyakit jika ada ..."
               />
-              <div className="flex justify-center mt-12 space-x-4">
+              <div className="flex justify-center mt-12 space-x-4 leading-6">
                 <button
                   type="submit"
-                  className="w-4/12 py-3 text-white transition-all duration-300 bg-secondary rounded-xl hover:bg-primary "
+                  className="w-4/12 py-4 text-white transition-all duration-300 bg-secondary rounded-xl hover:bg-primary "
                 >
                   Submit
                 </button>
@@ -72,7 +72,7 @@ const Appointment = () => {
       </section>
       <section className="h-auto px-20 bg-slate-100">
         <div className="flex flex-col items-center w-full py-5 mt-10 h-1/6 ">
-          <h1 className="text-3xl font-bold text-secondary">
+          <h1 className="text-3xl font-bold text-secondary leading-loose">
             Setelah Mendaftar
           </h1>
           <p className="px-48 text-base text-center">

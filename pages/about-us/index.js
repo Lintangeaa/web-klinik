@@ -18,7 +18,7 @@ const blog = () => {
             Who <span className="font-bold">We Are</span>
           </h1>
         </div>
-        <div className="flex py-5 mt-2">
+        <div className="flex space-x-5 py-5 mt-2">
           <p className="w-2/3">
             Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes
             nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde
@@ -33,8 +33,8 @@ const blog = () => {
             <CarouselAbout />
           </div>
         </div>
-        <div className="py-10 text-center bg-slate-100">
-          <h1 className="text-3xl text-secondary">
+        <div className="py-10 text-center bg-slate-100 rounded-xl">
+          <h1 className="text-3xl text-secondary leading-loose">
             MEET THE <span className="font-bold">PERFECT SPECIALIST</span> TEAM
           </h1>
           <p>

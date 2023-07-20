@@ -14,11 +14,11 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-50 w-screen text-gray-700 border-t-8 border-secondary bg-slate-100 pb-7">
       <div className="flex justify-start max-w-6xl py-4 mx-auto space-x-3">
-        <div className="flex space-x-2 cursor-pointer">
+        <div className="flex pl-10 space-x-2 cursor-pointer">
           <SlLocationPin className="text-secondary"></SlLocationPin>
           <p className="text-sm">Alamat</p>
         </div>
-        <div className="flex px-10 space-x-2 cursor-pointer">
+        <div className="flex pl-10 space-x-2 cursor-pointer">
           <MdOutlineAvTimer className="text-xl text-secondary"></MdOutlineAvTimer>
           <p className="text-sm">Jam buka</p>
         </div>
