@@ -1,8 +1,8 @@
-import ContentData from '@/store/ContentData'
-import React from 'react'
+import ContentData from "@/store/ContentData"
+import React from "react"
 import { GoChevronDown } from "react-icons/go"
 
-const DropdownNavbar = ({menu, options}) => {
+const DropdownNavbar = ({ menu, options }) => {
   return (
     <div className="relative group">
       <button className="flex items-center">
@@ -14,14 +14,14 @@ const DropdownNavbar = ({menu, options}) => {
           <a
             key={index}
             href={option.link}
-            className="block px-2 py-1 text-sm rounded hover:text-primary"
+            className="block px-2 py-1 text-sm rounded hover:text-secondary"
           >
             {option.label}
           </a>
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export default DropdownNavbar

@@ -3,9 +3,9 @@ import React from "react"
 const ContentData = {
   navbar: {
     dropdownOptions: [
-      { label: "Option 1", link: "#" },
-      { label: "Option 2", link: "#" },
-      { label: "Option 3", link: "#" },
+      { label: "About Us", link: "/about-us" },
+      { label: "Appointment", link: "/appointment" },
+      { label: "FAQ", link: "/faq" },
     ],
   },
   BannerImage: ["/images/content1.jpeg", "/images/content2.jpeg"],
@@ -58,7 +58,21 @@ const ContentData = {
         content6:
           "We offer extensive medical procedures to outbound & inbound patients what it is and we are very proud achievement staff.",
       },
+      popup: {
+        title1: "Cek Kesehatan",
+        content1: "Kami menyediakan test kesehatan",
+        title2: "Perawatan Intensif",
+        content2: "Kami menyediakan perawatan intensif",
+        title3: "Apotek",
+        content3: "Ketika berobat dapat langsung menebus obat",
+      },
     },
+  },
+  appointment: {
+    dropdownJenisKelamin: [
+      { label: "Laki-Laki", value: 1 },
+      { label: "Perempuan", value: 2 },
+    ],
   },
 }
 

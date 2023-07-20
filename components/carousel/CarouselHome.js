@@ -28,9 +28,11 @@ const Banner = () => {
       slideClass="swiper-slide"
       slideActiveClass="swiper-slide-active"
       speed={800}
+      className="h-screen"
     >
       {ContentData.BannerImage.map((banner) => (
         <SwiperSlide key={banner}>
+          <div className="absolute w-full h-screen bg-gradient-to-r from-lp"></div>
           <div className="absolute top-1/4 left-36 bg-transparant">
             <p className="text-lg font-semibold text-secondary">
               {ContentData.banner.title1}
