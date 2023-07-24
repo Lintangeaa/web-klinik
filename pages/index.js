@@ -49,8 +49,7 @@ export default function Home() {
         <div className="w-1/2 px-2 pt-64">
           <p className="text-lg font-ligt">OUR MEDICAL</p>
           <p className="max-w-xl py-5 text-3xl font-bold text-black">
-            We&apos;re setting Standards in Research what&apos;s more, Clinical
-            Care.
+            Menyelami Dunia Kesehatan dengan Inovasi dan Perhatian.
           </p>
           <TbActivity className="text-8xl text-secondary" />
           <div className="max-w-xl">
@@ -60,7 +59,7 @@ export default function Home() {
             <p className="py-4 text-sm">
               {ContentData.home.ourmedical.content3}
             </p>
-            <Button variant="primary" link="/" label="About Us" />
+            <Button variant="primary" link="/about-us" label="About Us" />
           </div>
         </div>
       </div>

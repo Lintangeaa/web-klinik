@@ -22,6 +22,8 @@ const InputWithTitle = ({
         id={id}
         type={type}
         placeholder={placeholder}
+        onChange={onChange}
+        value={value}
       />
     </div>
   )

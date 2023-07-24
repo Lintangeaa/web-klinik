@@ -1,50 +1,26 @@
-import { set } from "mongoose"
-import React, { useState } from "react"
+import { useState, useEffect } from "react"
 
-const Belajar = () => {
-  const [count, setCount] = useState("")
+export default function Profile() {
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
-  const handlePlus = () => {
-    setCount(count + 1)
-  }
+  useEffect(() => {
+    setLoading(true)
+    fetch("/api/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
 
-  const handleMin = () => {
-    setCount(count - 1)
-  }
-
-  const handleReset = () => {
-    setCount(0)
-  }
-
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No profile data</p>
+  console.log(data)
   return (
-    <section className="flex flex-col items-center justify-center mt-10">
-      <div className="flex space-x-3">
-        <button
-          onClick={handleMin}
-          className="px-6 text-3xl font-bold border rounded-md"
-        >
-          -
-        </button>
-        <div className="w-20">
-          <p className="text-4xl text-center">{count}</p>
-        </div>
-        <button
-          onClick={handlePlus}
-          className="px-6 text-3xl font-bold border rounded-md"
-        >
-          +
-        </button>
-      </div>
-      <div className="flex justify-center mt-2">
-        <button
-          onClick={handleReset}
-          className="px-6 text-3xl font-bold border rounded-md"
-        >
-          RESET
-        </button>
-      </div>
-    </section>
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.bio}</p>
+    </div>
   )
 }
-
-export default Belajar

@@ -1,11 +1,11 @@
 import axios from "axios"
-const domain = "http://localhost:3000"
+const domain = "http://localhost:8080"
 import { destroyCookie } from "next-cookies"
 
 export const loginApi = async (email, password) => {
   const res = await axios({
     method: "POST",
-    baseURL: `${domain}/api/login`,
+    baseURL: `${domain}/users`,
     data: {
       email,
       password,
@@ -23,7 +23,7 @@ export const loginApi = async (email, password) => {
 export const getAllUser = async () => {
   const res = await axios({
     method: "GET",
-    baseURL: `${domain}/api/users`,
+    baseURL: `${domain}/users`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -37,7 +37,7 @@ export const getAllUser = async () => {
 export const deleteUser = async (id) => {
   const res = await axios({
     method: "DELETE",
-    baseURL: `${domain}/users/delete?id=${id}`,
+    baseURL: `${domain}/api/users?id=${id}`,
   })
   if (res.data.success == false) {
     return res.data.success
@@ -54,7 +54,61 @@ export function logoutUser() {
 export const getAllAppointment = async () => {
   const res = await axios({
     method: "GET",
-    baseURL: `${domain}/api/appointment`,
+    baseURL: `${domain}/appointment`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  if (res.data.success == false) {
+    return res.data.success
+  }
+  return res.data.data
+}
+
+export const addAppointment = async (
+  name,
+  gender,
+  birthday,
+  phone,
+  address,
+  medicalHistory
+) => {
+  const res = await axios({
+    method: "POST",
+    baseURL: `${domain}/appointment`,
+    data: {
+      name,
+      gender,
+      birthday,
+      phone,
+      address,
+      medicalHistory,
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  if (res.data.success == false) {
+    return false
+  }
+  return res.data.data
+}
+
+export const apiDeleteAppointment = async (id) => {
+  const res = await axios({
+    method: "DELETE",
+    baseURL: `${domain}/appointment/${id}`,
+  })
+  if (res.data.success == false) {
+    return res.data.success
+  }
+  return res.data.data
+}
+
+export const apiGetAllDoctor = async () => {
+  const res = await axios({
+    method: "GET",
+    baseURL: `${domain}/doctor`,
     headers: {
       "Content-Type": "application/json",
     },

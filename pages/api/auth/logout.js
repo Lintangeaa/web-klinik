@@ -1,5 +1,3 @@
-import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
 import { destroyCookie } from "nookies"
 
 export default async function Logout(req, res) {

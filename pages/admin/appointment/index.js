@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { getAllAppointment } from "@/api/api"
+import { apiDeleteAppointment, getAllAppointment } from "@/api/api"
 import PageAdmin from "@/components/admin/PageAdmin"
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai"
 import Link from "next/link"
-import getAppointment from "@/pages/api/appointment"
+import { useRouter } from "next/router"
 
 const Appointment = () => {
   const [appointments, setAppointment] = useState([])
+
+  const router = useRouter()
 
   useEffect(() => {
     getAllAppointment().then((res) => {
@@ -15,7 +17,20 @@ const Appointment = () => {
     })
   }, [])
 
-  console.log(appointments)
+  const handleDelete = async (id) => {
+    apiDeleteAppointment(id)
+      .then((res) => {
+        console.log(res)
+
+        if (res == false) {
+          return
+        }
+        setTimeout(() => {
+          router.reload()
+        }, 2000)
+      })
+      .catch((err) => console.log(err))
+  }
 
   return (
     <PageAdmin>
@@ -67,9 +82,9 @@ const Appointment = () => {
                 </td>
                 <td
                   className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
-                  title={appointment.fullName}
+                  title={appointment.name}
                 >
-                  {appointment.fullName}
+                  {appointment.name}
                 </td>
                 <td
                   className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
@@ -109,7 +124,7 @@ const Appointment = () => {
                     />
                   </Link>
                   <AiOutlineDelete
-                    onClick={() => handleDelete(user.id)}
+                    onClick={() => handleDelete(appointment.id)}
                     title="Hapus user"
                     className="text-xl cursor-pointer hover:text-red-400"
                   />
