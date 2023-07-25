@@ -64,13 +64,13 @@ const PageAdmin = ({ children }) => {
               <RiUserHeartLine className="mx-3 text-xl text-left" />
               User
             </Link>
-            <a
-              href="index.html"
+            <Link
+              href="/admin/dokter"
               className="flex items-center justify-start w-full py-2 mt-5 font-semibold bg-white rounded-tr-lg rounded-bl-lg rounded-br-lg shadow-lg cta-btn hover:shadow-xl hover:bg-secondary hover:text-white"
             >
               <FaUserMd className="mx-3 text-xl text-left" />
               Dokter
-            </a>
+            </Link>
             <Link
               href="/admin/appointment"
               className="flex items-center justify-start w-full py-2 mt-5 font-semibold bg-white rounded-tr-lg rounded-bl-lg rounded-br-lg shadow-lg cta-btn hover:shadow-xl hover:bg-secondary hover:text-white"

@@ -1,64 +1,46 @@
-import React, { useState, useEffect } from "react"
-import { getAllUser, deleteUser } from "@/api/api"
+import { apiGetAllDoctor } from "@/api/api"
 import PageAdmin from "@/components/admin/PageAdmin"
+import React, { useState, useEffect } from "react"
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai"
 import Link from "next/link"
-import { useRouter } from "next/router"
 
-const User = () => {
-  const [users, setUsers] = useState([])
-  const router = useRouter()
+const Doctor = () => {
+  const [doctors, setDoctors] = useState([])
 
   useEffect(() => {
-    getAllUser().then((res) => {
+    apiGetAllDoctor().then((res) => {
       console.log(res)
-      setUsers(res)
+      setDoctors(res)
     })
   }, [])
-
-  const handleDelete = async (id) => {
-    deleteUser(id)
-      .then((res) => {
-        console.log(res)
-
-        if (res == false) {
-          return
-        }
-        setTimeout(() => {
-          router.reload()
-        }, 2000)
-      })
-      .catch((err) => console.log(err))
-  }
-
   return (
     <PageAdmin>
       <div className="w-5/6 mx-20 text-black">
         <div className="py-5 text-2xl text-center text-bold font-poppins">
-          <h1>User</h1>
+          <h1>doctor</h1>
         </div>
         <table className="w-full mx-auto text-sm font-light text-left text-black rounded-sm font-poppins">
           <thead className="font-medium text-center border-2 bg-biru-tsg">
             <tr>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
-                #
+                No
               </th>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
-                Username
+                Nama
               </th>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
-                Email
+                Divisi
               </th>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
-                Role
+                Sesi
               </th>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
-                Action
+                action
               </th>
             </tr>
           </thead>
           <tbody className="text-center">
-            {users.map((user, i) => (
+            {doctors.map((doctor, i) => (
               <tr
                 key={i}
                 className="transition duration-300 ease-in-out hover:bg-white/5"
@@ -71,32 +53,32 @@ const User = () => {
                 </td>
                 <td
                   className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
-                  title={user.username}
+                  title={doctor.name}
                 >
-                  {user.username}
+                  {doctor.name}
                 </td>
                 <td
                   className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
-                  title={user.email}
+                  title={doctor.Division.name}
                 >
-                  {user.email}
+                  {doctor.Division.name}
                 </td>
                 <td
                   className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
-                  title={user.role}
+                  title={doctor.Scheudle.session}
                 >
-                  {user.role}
+                  {doctor.Scheudle.session}
                 </td>
                 <td className="flex justify-center py-4 space-x-5 border-b-2 border-r-2 border-biru-dark">
-                  <Link href={`/admin/blog/edit?id=${user.id}`}>
+                  <Link href={`/admin/blog/edit?id=${doctor.id}`}>
                     <AiOutlineEdit
-                      title="Hapus user"
+                      title="Hapus doctor"
                       className="text-xl cursor-pointer hover:text-secondary"
                     />
                   </Link>
                   <AiOutlineDelete
-                    onClick={() => handleDelete(user.id)}
-                    title="Hapus user"
+                    onClick={() => handleDelete(doctor.id)}
+                    title="Hapus doctor"
                     className="text-xl cursor-pointer hover:text-red-400"
                   />
                 </td>
@@ -109,4 +91,4 @@ const User = () => {
   )
 }
 
-export default User
+export default Doctor

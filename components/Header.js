@@ -9,6 +9,7 @@ import Image from "next/image"
 import PopUpForm from "./form/PopUpForm"
 import { useRouter } from "next/router"
 import NavItem from "./NavItem"
+import Link from "next/link"
 
 const Header = () => {
   return (
@@ -44,12 +45,14 @@ const Header = () => {
                 options={ContentData.navbar.dropdownOptions}
               />
             </li>
-            <NavItem link="/" title="DOCTOR" />
-            <NavItem link="/" title="CONTACT" />
+            <NavItem link="/doctor" title="DOCTOR" />
+            <NavItem link="/contact" title="CONTACT" />
           </ul>
         </nav>
       </div>
-      <PopUpForm />
+      <button className="absolute z-50 px-10 font-bold text-white rounded-lg h-14 bg-secondary top-[64px] right-20 hover:bg-white hover:border-2 border-secondary focus:outline-none focus:shadow-outline hover:text-secondary">
+        <Link href="/appointment">JANJI TEMU</Link>
+      </button>
     </div>
   )
 }

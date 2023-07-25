@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import CarouselAbout from "@/components/carousel/CaroselAbout"
 import InputWithTitle from "@/components/input/InputWithTitle"
 import Dropdown from "@/components/input/Dropdown"
@@ -7,56 +7,142 @@ import DateInput from "@/components/input/InputDate"
 import { FaChevronCircleDown } from "react-icons/fa"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import { addAppointment, apiGetAllDivision, apiGetAllDoctor } from "@/api/api"
+import { useRouter } from "next/router"
 
 const Appointment = () => {
+  const [name, setName] = useState("")
+  const [gender, setGender] = useState("")
+  const [birthday, setBirthday] = useState("")
+  const [phone, setPhone] = useState("Laki-laki")
+  const [address, setAddress] = useState("")
+  const [medicalHistory, setMedicalHistory] = useState("")
+  const [doctorIds, setDoctorIds] = useState("")
+  const [doctors, setDoctors] = useState([])
+
+  const router = useRouter()
+
+  useEffect(() => {
+    apiGetAllDoctor().then((res) => {
+      console.log(res)
+      setDoctors(res)
+    })
+  }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addAppointment(
+      name,
+      gender,
+      birthday,
+      phone,
+      address,
+      medicalHistory,
+      doctorIds
+    )
+      .then((res) => {
+        if (res == false) {
+          setTimeout(() => {
+            setName("")
+            setGender("")
+            setBirthday("")
+            setPhone("")
+            setAddress("")
+            setMedicalHistory("")
+            setDoctorIds("")
+          }, 3000)
+        }
+        setTimeout(() => {
+          router.reload()
+        }, 2000)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   return (
     <main>
       <Header />
       <section className="flex flex-col items-center justify-center bg-fixed h-72 bg-about">
-        <h1 className="text-3xl font-bold text-secondary">
-          MAKE AN APPOINTMENT
-        </h1>
-        <p className="text-base">
-          Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes
+        <h1 className="text-3xl font-bold text-secondary">BUAT JANJI TEMU</h1>
+        <p className="mx-16 text-base">
+          Dengan membuat janji temu, Anda dapat mengatur waktu yang tepat untuk
+          bertemu, berdiskusi, atau mendapatkan pelayanan dari dokter,
+          profesional, atau orang lain.
         </p>
       </section>
       <section className="h-auto px-20">
         <div className="flex flex-col items-center w-full py-5 mt-10 h-1/6 ">
-          <h1 className="text-3xl text-secondary">MAKE AN APPOINTMENT</h1>
+          <h1 className="text-3xl text-secondary">BUAT JANJI TEMU</h1>
           <p className="text-base">
             Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes
           </p>
         </div>
         <div className="flex py-5 mt-2 h-5/6">
           <div className="w-1/2 h-screen rounded-2xl">
-            <form className="space-y-3">
+            <form className="space-y-3" onSubmit={handleSubmit}>
               <InputWithTitle
                 title="Nama"
                 placeholder="Silahkan masukan nama anda ..."
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <div>
-                <p className="mb-2 text-sm font-semibold lg:text-lg text-secondary">
+                <p className="block mb-2 text-sm font-semibold lg:text-lg text-secondary">
                   Jenis Kelamin
                 </p>
-                <Dropdown
-                  unSelect="Pilih Jenis Kelamin"
-                  options={ContentData.appointment.dropdownJenisKelamin}
-                />
+                <select
+                  value={gender}
+                  onChange={(e) => {
+                    setGender(e.target.value)
+                  }}
+                  className="rounded-md border-secondary"
+                >
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
               </div>
-              <DateInput label="Tanggal Lahir" />
+              <DateInput
+                label="Tanggal Lahir"
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
+              />
               <InputWithTitle
                 title="Nomor Whats App"
                 type="number"
                 placeholder="Silahkan masukan nomor wa anda ..."
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <InputWithTitle
                 title="Alamat Rumah"
                 placeholder="Silahkan masukan alamat rumah anda ..."
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
               />
               <InputWithTitle
                 title="Riwayat Penyakit"
                 placeholder="Silahkan masukan riwayat penyakit jika ada ..."
+                value={medicalHistory}
+                onChange={(e) => setMedicalHistory(e.target.value)}
               />
+              <p className="block mb-2 text-sm font-semibold lg:text-lg text-secondary">
+                Jenis Kelamin
+              </p>
+              <select
+                value={doctorIds}
+                onChange={(e) => {
+                  setDoctorIds(e.target.value)
+                }}
+                className="rounded-md border-secondary"
+              >
+                {doctors.map((doctor) => (
+                  <option key={doctor.id} value={doctor.id}>
+                    {doctor.name}
+                  </option>
+                ))}
+              </select>
               <div className="flex justify-center mt-12 space-x-4">
                 <button
                   type="submit"
@@ -76,10 +162,10 @@ const Appointment = () => {
             Setelah Mendaftar
           </h1>
           <p className="px-48 text-base text-center">
-            Hi fill in the details and submit the form. We will contact you via
-            phone or email and fix a time schedule. These are the thing you need
-            to carry with you when you come in for the appointment wit the
-            doctor.
+            Hai isi detailnya dan kirimkan formulirnya. Kami akan menghubungi
+            Anda melalui telepon atau email dan memperbaiki jadwal waktu. Ini
+            adalah hal yang perlu Anda bawa saat Anda datang untuk membuat janji
+            dengan dokter.
           </p>
           <div className="flex w-full px-40 mt-10">
             <ul className="w-1/2 space-y-5">

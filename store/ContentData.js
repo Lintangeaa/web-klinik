@@ -10,28 +10,29 @@ const ContentData = {
   },
   BannerImage: ["/images/content1.jpeg", "/images/content2.jpeg"],
   banner: {
-    title1: "Welcome to our website",
-    title2: "We Take Care Our",
-    title3: "Patient Health",
-    title4: "I realized",
+    title1: "Selamat datang di Medicare",
+    title2: "Kesehatan Anda",
+    title3: "Prioritas Kami",
+    title4:
+      "Kami percaya bahwa setiap individu unik, dan itulah sebabnya kami menawarkan perawatan yang disesuaikan dengan kebutuhan dan preferensi setiap pasien. Kami mengutamakan inovasi dan teknologi terkini dalam menyediakan solusi medis terbaik untuk Anda",
   },
   home: {
     box: {
-      title1: "Quality & Safety",
+      title1: "Quality and Safety",
       content1:
-        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
-      title2: "Leading Technology",
+        "Pengalaman aman dan berkualitas bagi pelanggan adalah tujuan kami, dan kami selalu berusaha memberikan yang terbaik untuk mencapainya.",
+      title2: "Integrasi Rekam Medis",
       content2:
-        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
+        "Fasilitas modern sering kali mengadopsi sistem rekam medis elektronik yang memungkinkan akses mudah dan aman ke data pasien, memfasilitasi koordinasi perawatan yang lebih baik.",
       title3: "Expert by Experience",
       content3:
-        "Our Delmont hospital utilizes state of the art technology and employs a team of true experts.",
+        "Kami percaya bahwa pengalaman pribadi adalah sumber pengetahuan yang tak ternilai harganya, dan inilah mengapa kami menggabungkan perspektif pasien dalam setiap aspek layanan kami.",
     },
     ourmedical: {
       title: "Our Medical",
-      content1: "a",
+      content1: "Menyelami Dunia Kesehatan dengan Inovasi dan Perhatian.",
       content2:
-        "We provide the most full medical services, so every person could have the pportunity o receive qualitative medical help.",
+        "kami bangga menjadi garda terdepan dalam memberikan perawatan kesehatan terdepan dengan pendekatan revolusioner yang berfokus pada Anda. Kami telah memahami bahwa setiap individu adalah kisah unik yang layak untuk diperhatikan, dan inilah mengapa kami menghadirkan pengalaman medis yang luar biasa.",
       content3:
         "Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and bore advanced restorative dentistry. We are among the most qualified implant providers in the AUS with over 30 years of uality training and experience.",
     },

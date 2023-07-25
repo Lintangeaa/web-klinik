@@ -1,19 +1,33 @@
-import { PrismaClient } from "@prisma/client"
+import {
+  addUser,
+  deleteUser,
+  getAllAppointment,
+  getAllUser,
+} from "@/prisma/user"
 
-export default async function getAppointment(req, res) {
-  const prisma = new PrismaClient()
-  if (req.method === "GET") {
-    try {
-      const user = await prisma.appointment.findMany()
-      console.log("succes")
-      res.status(200).json({ success: true, data: user })
-    } catch (error) {
-      console.log(error)
-      res.status(404).json({ success: false, error })
+export default async function handler(req, res) {
+  try {
+    switch (req.method) {
+      case "POST": {
+        const { username, email, password, role } = req.body
+        const user = await addUser(username, email, password, role)
+
+        return res.status(201).json(user)
+      }
+      case "GET": {
+        const appointment = await getAllAppointment()
+
+        return res.status(201).json(appointment)
+      }
+      case "DELETE": {
+        const { id } = req.query
+
+        await deleteUser(id)
+
+        return res.status(201).json({ message: "User berhasil dihapus" })
+      }
     }
-  } else {
-    res.status(400).json({
-      message: "Method Not Allowed",
-    })
+  } catch (error) {
+    return res.status(400).json({ message: error })
   }
 }
