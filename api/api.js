@@ -71,7 +71,8 @@ export const addAppointment = async (
   birthday,
   phone,
   address,
-  medicalHistory
+  medicalHistory,
+  doctorId
 ) => {
   const res = await axios({
     method: "POST",
@@ -83,6 +84,7 @@ export const addAppointment = async (
       phone,
       address,
       medicalHistory,
+      doctorId,
     },
     headers: {
       "Content-Type": "application/json",
@@ -105,10 +107,25 @@ export const apiDeleteAppointment = async (id) => {
   return res.data.data
 }
 
+//doctor
 export const apiGetAllDoctor = async () => {
   const res = await axios({
     method: "GET",
     baseURL: `${domain}/doctor`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  if (res.data.success == false) {
+    return res.data.success
+  }
+  return res.data.data
+}
+
+export const apiGetAllDivision = async () => {
+  const res = await axios({
+    method: "GET",
+    baseURL: `${domain}/doctor/division`,
     headers: {
       "Content-Type": "application/json",
     },

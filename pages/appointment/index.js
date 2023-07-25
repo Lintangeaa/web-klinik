@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import CarouselAbout from "@/components/carousel/CaroselAbout"
 import InputWithTitle from "@/components/input/InputWithTitle"
 import Dropdown from "@/components/input/Dropdown"
@@ -7,7 +7,7 @@ import DateInput from "@/components/input/InputDate"
 import { FaChevronCircleDown } from "react-icons/fa"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import { addAppointment } from "@/api/api"
+import { addAppointment, apiGetAllDivision, apiGetAllDoctor } from "@/api/api"
 import { useRouter } from "next/router"
 
 const Appointment = () => {
@@ -17,12 +17,29 @@ const Appointment = () => {
   const [phone, setPhone] = useState("Laki-laki")
   const [address, setAddress] = useState("")
   const [medicalHistory, setMedicalHistory] = useState("")
+  const [doctorIds, setDoctorIds] = useState("")
+  const [doctors, setDoctors] = useState([])
 
   const router = useRouter()
 
+  useEffect(() => {
+    apiGetAllDoctor().then((res) => {
+      console.log(res)
+      setDoctors(res)
+    })
+  }, [])
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    addAppointment(name, gender, birthday, phone, address, medicalHistory)
+    addAppointment(
+      name,
+      gender,
+      birthday,
+      phone,
+      address,
+      medicalHistory,
+      doctorIds
+    )
       .then((res) => {
         if (res == false) {
           setTimeout(() => {
@@ -32,6 +49,7 @@ const Appointment = () => {
             setPhone("")
             setAddress("")
             setMedicalHistory("")
+            setDoctorIds("")
           }, 3000)
         }
         setTimeout(() => {
@@ -109,6 +127,22 @@ const Appointment = () => {
                 value={medicalHistory}
                 onChange={(e) => setMedicalHistory(e.target.value)}
               />
+              <p className="block mb-2 text-sm font-semibold lg:text-lg text-secondary">
+                Jenis Kelamin
+              </p>
+              <select
+                value={doctorIds}
+                onChange={(e) => {
+                  setDoctorIds(e.target.value)
+                }}
+                className="rounded-md border-secondary"
+              >
+                {doctors.map((doctor) => (
+                  <option key={doctor.id} value={doctor.id}>
+                    {doctor.name}
+                  </option>
+                ))}
+              </select>
               <div className="flex justify-center mt-12 space-x-4">
                 <button
                   type="submit"

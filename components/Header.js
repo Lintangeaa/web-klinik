@@ -45,8 +45,8 @@ const Header = () => {
                 options={ContentData.navbar.dropdownOptions}
               />
             </li>
-            <NavItem link="/" title="DOCTOR" />
-            <NavItem link="/" title="CONTACT" />
+            <NavItem link="/doctor" title="DOCTOR" />
+            <NavItem link="/contact" title="CONTACT" />
           </ul>
         </nav>
       </div>

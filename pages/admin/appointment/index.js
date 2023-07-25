@@ -64,6 +64,9 @@ const Appointment = () => {
                 Riwayat Penyakit
               </th>
               <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
+                Dokter
+              </th>
+              <th scope="col" className="px-2 py-4 border-2 border-biru-dark">
                 Action
               </th>
             </tr>
@@ -115,6 +118,12 @@ const Appointment = () => {
                   title={appointment.medicalHistory}
                 >
                   {appointment.medicalHistory}
+                </td>
+                <td
+                  className="px-2 py-4 border-2 border-biru-dark whitespace-nowrap"
+                  title={appointment.Doctor.name}
+                >
+                  {appointment.Doctor.name}
                 </td>
                 <td className="flex justify-center py-4 space-x-5 border-b-2 border-r-2 border-biru-dark">
                   <Link href={`/admin/blog/edit?id=`}>
