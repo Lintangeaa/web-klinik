@@ -14,6 +14,7 @@ import {
   apiGetAllDoctor,
 } from "@/api/api"
 import { useRouter } from "next/router"
+import { Alert } from "@mui/material"
 
 const Appointment = () => {
   const [name, setName] = useState("")
@@ -22,10 +23,12 @@ const Appointment = () => {
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
   const [medicalHistory, setMedicalHistory] = useState("")
-  const [doctorIds, setDoctorIds] = useState("")
+  const [doctorId, setDoctorId] = useState("")
   const [userId, setUserId] = useState("")
   const [username, setUsername] = useState("")
   const [doctors, setDoctors] = useState([])
+
+  const [status, setStatus] = useState("")
 
   const router = useRouter()
 
@@ -45,11 +48,18 @@ const Appointment = () => {
       phone,
       address,
       medicalHistory,
-      doctorIds,
+      doctorId,
       userId,
     })
       .then((res) => {
         console.log(res)
+        setTimeout(() => {
+          setStatus({
+            type: "success",
+            message: "Pendaftaran Janji Temu Berhasil",
+          })
+          router.reload()
+        }, 2000)
       })
       .catch((error) => {
         setTimeout(() => {
@@ -59,7 +69,7 @@ const Appointment = () => {
           setPhone("")
           setAddress("")
           setMedicalHistory("")
-          setDoctorIds("")
+          setDoctorId("")
           setUserId("")
         }, 3000)
         console.log(error)
@@ -149,9 +159,9 @@ const Appointment = () => {
                 Jenis Kelamin
               </p>
               <select
-                value={doctorIds}
+                value={doctorId}
                 onChange={(e) => {
-                  setDoctorIds(e.target.value)
+                  setDoctorId(e.target.value)
                 }}
                 className="rounded-md border-secondary"
               >
@@ -170,6 +180,13 @@ const Appointment = () => {
                 </button>
               </div>
             </form>
+            {status && (
+              <Alert
+                severity={status.type === "success" ? "success" : "danger"}
+              >
+                {status.message}
+              </Alert>
+            )}
           </div>
           <p className="w-1/2 h-screen bg-no-repeat bg-appointment"></p>
         </div>
