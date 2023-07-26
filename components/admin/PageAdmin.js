@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import jwt from "jsonwebtoken"
 import { useRouter } from "next/router"
+import requireAdmin from "@/middlewares/requireAdmin"
 
 const PageAdmin = ({ children }) => {
   const router = useRouter()
@@ -14,17 +15,17 @@ const PageAdmin = ({ children }) => {
 
   useEffect(() => {
     // Retrieve the token from localStorage
-    const token = localStorage.getItem("token")
-
-    const decodedToken = jwt.decode(token)
-    setUsername(decodedToken.username)
+    const user = JSON.parse(localStorage.getItem("user"))
+    console.log(user)
+    // const decodedToken = jwt.decode(token)
+    setUsername(user.username)
   }, [])
 
   const handleLogout = () => {
     // Remove the token from localStorage (accessible only on the client-side)
     if (typeof window !== "undefined") {
-      localStorage.removeItem("token")
-      router.push("/admin/login") // Redirect to the login page
+      localStorage.removeItem("tokem")
+      router.push("/login") // Redirect to the login page
     }
   }
   return (

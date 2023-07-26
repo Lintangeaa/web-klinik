@@ -1,11 +1,16 @@
-import { apiGetAllDoctor } from "@/api/api"
+import { apiDeleteDoctor, apiGetAllDoctor } from "@/api/api"
 import PageAdmin from "@/components/admin/PageAdmin"
 import React, { useState, useEffect } from "react"
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai"
 import Link from "next/link"
+import { useRouter } from "next/router"
+import { Alert } from "@mui/material"
 
 const Doctor = () => {
   const [doctors, setDoctors] = useState([])
+  const [status, setStatus] = useState("")
+
+  const router = useRouter()
 
   useEffect(() => {
     apiGetAllDoctor().then((res) => {
@@ -13,12 +18,41 @@ const Doctor = () => {
       setDoctors(res)
     })
   }, [])
+
+  const handleDelete = async (id) => {
+    apiDeleteDoctor(id)
+      .then((res) => {
+        console.log(res)
+
+        if (res == false) {
+          return
+        }
+        setTimeout(() => {
+          setStatus({
+            type: "danger",
+            message: "Data berhasil dihapus!",
+          })
+          router.reload()
+        }, 2000)
+      })
+      .catch((err) => console.log(err))
+  }
   return (
     <PageAdmin>
       <div className="w-5/6 mx-20 text-black">
         <div className="py-5 text-2xl text-center text-bold font-poppins">
           <h1>doctor</h1>
         </div>
+        <Link href="/admin/dokter/add">
+          <button className="p-2 mb-5 text-white rounded-sm bg-secondary">
+            Tambah Dokter
+          </button>
+        </Link>
+        {status && (
+          <Alert severity={status.type === "success" ? "success" : "danger"}>
+            {status.message}
+          </Alert>
+        )}
         <table className="w-full mx-auto text-sm font-light text-left text-black rounded-sm font-poppins">
           <thead className="font-medium text-center border-2 bg-biru-tsg">
             <tr>

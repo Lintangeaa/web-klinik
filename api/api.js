@@ -20,6 +20,15 @@ export const loginApi = async (email, password) => {
   return res.data.data
 }
 
+export const apiWhoami = async (token) => {
+  const res = await axios({
+    method: "GET",
+    baseURL: `${domain}/users/whoami?token=${token}`,
+  })
+  localStorage.setItem("user", JSON.stringify(res.data.data))
+  return res.data.data
+}
+
 export const getAllUser = async () => {
   const res = await axios({
     method: "GET",
@@ -65,14 +74,13 @@ export const getAllAppointment = async () => {
   return res.data.data
 }
 
-export const addAppointment = async (
+export const addAppointmentApi = async (
   name,
   gender,
   birthday,
   phone,
   address,
-  medicalHistory,
-  doctorId
+  medicalHistory
 ) => {
   const res = await axios({
     method: "POST",
@@ -84,7 +92,6 @@ export const addAppointment = async (
       phone,
       address,
       medicalHistory,
-      doctorId,
     },
     headers: {
       "Content-Type": "application/json",
@@ -94,6 +101,42 @@ export const addAppointment = async (
     return false
   }
   return res.data.data
+}
+
+export const apiAddAppoinment = async ({
+  name,
+  gender,
+  birthday,
+  phone,
+  address,
+  medicalHistory,
+  docterId,
+  userId,
+}) => {
+  try {
+    const data = {
+      name,
+      gender,
+      birthday,
+      phone,
+      address,
+      medicalHistory,
+      docterId,
+      userId,
+    }
+    const res = await axios({
+      baseURL: `${domain}/appointment`,
+      method: "POST",
+      data,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    return res.data
+  } catch (error) {
+    return error.response.data
+  }
 }
 
 export const apiDeleteAppointment = async (id) => {
@@ -122,10 +165,58 @@ export const apiGetAllDoctor = async () => {
   return res.data.data
 }
 
+export const apiAddDoctor = async ({
+  name,
+  divisionId,
+  scheudleId,
+  spesialis,
+}) => {
+  try {
+    const data = { name, divisionId, scheudleId, spesialis }
+    const res = await axios({
+      method: "POST",
+      baseURL: `${domain}/doctor`,
+      data,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+    return res.data
+  } catch (error) {
+    return error.response.data
+  }
+}
+
+export const apiDeleteDoctor = async (id) => {
+  const res = await axios({
+    method: "DELETE",
+    baseURL: `${domain}/doctor/${id}`,
+  })
+  if (res.data.success == false) {
+    return res.data.success
+  }
+  return res.data.data
+}
+
 export const apiGetAllDivision = async () => {
   const res = await axios({
     method: "GET",
     baseURL: `${domain}/doctor/division`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  if (res.data.success == false) {
+    return res.data.success
+  }
+  return res.data.data
+}
+
+export const apiGetAllScheudle = async () => {
+  const res = await axios({
+    method: "GET",
+    baseURL: `${domain}/doctor/scheudle`,
     headers: {
       "Content-Type": "application/json",
     },

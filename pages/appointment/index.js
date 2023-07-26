@@ -7,17 +7,24 @@ import DateInput from "@/components/input/InputDate"
 import { FaChevronCircleDown } from "react-icons/fa"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import { addAppointment, apiGetAllDivision, apiGetAllDoctor } from "@/api/api"
+import {
+  addAppointment,
+  apiAddAppoinment,
+  apiGetAllDivision,
+  apiGetAllDoctor,
+} from "@/api/api"
 import { useRouter } from "next/router"
 
 const Appointment = () => {
   const [name, setName] = useState("")
   const [gender, setGender] = useState("")
   const [birthday, setBirthday] = useState("")
-  const [phone, setPhone] = useState("Laki-laki")
+  const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
   const [medicalHistory, setMedicalHistory] = useState("")
   const [doctorIds, setDoctorIds] = useState("")
+  const [userId, setUserId] = useState("")
+  const [username, setUsername] = useState("")
   const [doctors, setDoctors] = useState([])
 
   const router = useRouter()
@@ -31,35 +38,39 @@ const Appointment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addAppointment(
+    apiAddAppoinment({
       name,
       gender,
       birthday,
       phone,
       address,
       medicalHistory,
-      doctorIds
-    )
+      doctorIds,
+      userId,
+    })
       .then((res) => {
-        if (res == false) {
-          setTimeout(() => {
-            setName("")
-            setGender("")
-            setBirthday("")
-            setPhone("")
-            setAddress("")
-            setMedicalHistory("")
-            setDoctorIds("")
-          }, 3000)
-        }
-        setTimeout(() => {
-          router.reload()
-        }, 2000)
+        console.log(res)
       })
       .catch((error) => {
+        setTimeout(() => {
+          setName("")
+          setGender("")
+          setBirthday("")
+          setPhone("")
+          setAddress("")
+          setMedicalHistory("")
+          setDoctorIds("")
+          setUserId("")
+        }, 3000)
         console.log(error)
       })
   }
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    setUserId(parseInt(user.id))
+    setUsername(user.username)
+  }, [])
 
   return (
     <main>
@@ -82,8 +93,15 @@ const Appointment = () => {
         <div className="flex py-5 mt-2 h-5/6">
           <div className="w-1/2 h-screen rounded-2xl">
             <form className="space-y-3" onSubmit={handleSubmit}>
+              <label className="block mb-2 text-sm font-semibold lg:text-lg text-secondary">
+                Pengguna
+              </label>
+              <input
+                className="bg-white border-secondary appearance-none text-sm w-full border rounded-md py-3.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-secondary"
+                placeholder={username}
+              />
               <InputWithTitle
-                title="Nama"
+                title="Nama Pasien"
                 placeholder="Silahkan masukan nama anda ..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
