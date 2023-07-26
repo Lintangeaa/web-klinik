@@ -12,7 +12,7 @@ import Button from "@/components/button/Button"
 import Header from "@/components/Header"
 import PopUpForm from "@/components/form/PopUpForm"
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="w-full">
       <Header />
@@ -108,3 +108,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Home

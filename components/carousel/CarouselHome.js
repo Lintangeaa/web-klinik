@@ -42,8 +42,7 @@ const Banner = () => {
             </p>
             <p className="mt-2 font-semibold "> {ContentData.banner.title4}</p>
             <div className="flex items-center mt-10 space-x-4">
-              <Button variant="primary" label="About Us" link="/" />
-              <Button variant="secondary" label="Our Service" link="/" />
+              <Button variant="primary" label="About Us" link="/about-us" />
             </div>
           </div>
           <Image

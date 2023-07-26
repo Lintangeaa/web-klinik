@@ -1,11 +1,14 @@
 import { useRouter } from "next/navigation"
 import jwt from "jsonwebtoken"
-import { useState } from "react"
-import { loginApi } from "@/api/api"
+import { useEffect, useState } from "react"
+import { apiWhoami, loginApi } from "@/api/api"
+import { Alert } from "@mui/material"
 
-export default function AboutUs() {
+export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loginStatus, setLoginStatus] = useState(null)
+  const [loggedUser, setLoggedUser] = useState(null)
 
   const router = useRouter()
 
@@ -13,32 +16,33 @@ export default function AboutUs() {
     e.preventDefault()
     loginApi(email, password)
       .then((res) => {
-        if (res == false) {
-          setTimeout(() => {
-            setEmail("")
-            setPassword("")
-            alert("Login Unsuccess")
-          }, 3000)
-          alert("Login Succes")
-        }
         const { token } = res
         console.log(token)
+        setLoginStatus({ type: "success", message: "Login successful!" })
 
         // Decode the JWT token to get the admin role
         const decodedToken = jwt.decode(token)
         const adminRole = decodedToken.role
-        localStorage.setItem("token", token)
+        apiWhoami(token).then((res) => {
+          setLoggedUser(res)
+        })
 
-        if (adminRole == "admin") {
-          return router.push("/admin")
-        } else {
-          return router.push("/")
-        }
+        setTimeout(() => {
+          if (adminRole == "admin") {
+            router.push("/admin")
+          } else {
+            router.push("/")
+          }
+        }, 500)
       })
       .catch((error) => {
+        setEmail("")
+        setPassword("")
         console.log(error)
       })
   }
+
+  console.log(loggedUser)
 
   return (
     <>
@@ -48,7 +52,7 @@ export default function AboutUs() {
             <div className="flex flex-col items-center">
               <h1 className="text-3xl font-semibold text-white">Sign In</h1>
               <p className="text-sm text-white">
-                Sign in to access Admin Dashboard
+                Sign in untuk dapat mengakses website
               </p>
             </div>
             <div className="form-group">
@@ -87,6 +91,13 @@ export default function AboutUs() {
                 </div>
               </div>
             </div>
+            {loginStatus && (
+              <Alert
+                severity={loginStatus.type === "success" ? "success" : "danger"}
+              >
+                {loginStatus.message}
+              </Alert>
+            )}
           </div>
         </form>
       </div>
